@@ -5,33 +5,46 @@
     <title></title>
     <link rel="stylesheet" href="/static/css/master.css">
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="/static/js/master.js" charset="utf-8"></script>
 </head>
 
 <body>
 
-    <form action="" class="b-form">
-        <div class="b-form__section">
-            <input id="checkbox1" type="checkbox" class="b-form__input">
-            <label for="checkbox1" class="b-form__label">Номер 1</label>
+    <div class="b-layout" id="app">
+
+        <div class="b-game">
+            <div class="b-game__field" >
+                <div class="b-stick" v-for="(stick, $index) in game.field"
+                    v-on:click="playPull($index, $event)"
+                    v-bind:class="{ 'b-stick_pulled' : stick.pulled }">Палочка</div>
+            </div>
+
+            <div class="b-game__controls">
+                <div class="b-game__button">Next turn</div>
+            </div>
         </div>
-        <div class="b-form__section">
-            <input id="checkbox2" type="checkbox" class="b-form__input">
-            <label for="checkbox2" class="b-form__label">Номер 2</label>
-        </div>
-        <div class="b-form__section">
-            <input id="checkbox3" type="checkbox" class="b-form__input">
-            <label for="checkbox3" class="b-form__label">Номер 3</label>
-        </div>
-        <div class="b-form__section">
-            <input id="checkbox4" type="checkbox" class="b-form__input">
-            <label for="checkbox4" class="b-form__label">Номер 4</label>
-        </div>
-        <div class="b-form__section">
-            <input id="checkbox5" type="checkbox" class="b-form__input">
-            <label for="checkbox5" class="b-form__label">Номер 5</label>
-        </div>
-    </form>
+
+        <!-- <div class="b-table">
+            <div class="b-table__slot">
+                <div class="b-table__card b-card"></div>
+                <div class="b-table__card b-card"></div>
+                <div class="b-table__card b-card"></div>
+            </div>
+            <div class="b-table__slot"></div>
+            <div class="b-table__slot">
+            </div>
+            <div class="b-table__slot">
+
+            </div>
+            <div class="b-table__slot">
+            </div>
+            <div class="b-table__slot"></div>
+        </div> -->
+
+        <!-- <d1
+
+    </div>
 
 </body>
 
